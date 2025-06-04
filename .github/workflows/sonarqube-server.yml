@@ -17,6 +17,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK 8 for Mule build
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Set Java 8 path for SonarQube
+        id: java8-path
+        run: echo "JAVA8_HOME=$JAVA_HOME" >> $GITHUB_ENV
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -46,8 +55,10 @@ jobs:
         run: |
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
+          export JAVA_HOME_8=${{ env.JAVA8_HOME }}
           mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
           -f mule4-batch-demo/pom.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
-          -Dsonar.projectBaseDir=mule4-batch-demo/
+          -Dsonar.projectBaseDir=mule4-batch-demo/ \
+          -Dsonar.java.jdkHome=$JAVA_HOME_8 
