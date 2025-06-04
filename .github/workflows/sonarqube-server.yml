@@ -23,6 +23,9 @@ jobs:
           java-version: 8
           distribution: 'temurin'
           cache: 'maven'
+      - name: Build with Java 8
+        run: |
+          mvn -B clean package -f mule4-batch-demo/pom.xml
       - name: Set Java 8 path for SonarQube
         id: java8-path
         run: echo "JAVA8_HOME=$JAVA_HOME" >> $GITHUB_ENV
