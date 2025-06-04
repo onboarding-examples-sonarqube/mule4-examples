@@ -42,7 +42,7 @@ jobs:
         run: |
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
-          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X \
+          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
           -f mule4-batch-demo/pom.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
