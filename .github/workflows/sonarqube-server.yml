@@ -46,4 +46,5 @@ jobs:
           -f mule4-batch-demo/pom.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
-          -Dsonar.projectBaseDir=mule4-batch-demo/ 
+          -Dsonar.projectBaseDir=mule4-batch-demo/ \
+          -rf :mule4-batch-demo 
