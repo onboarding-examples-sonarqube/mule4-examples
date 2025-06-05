@@ -13,11 +13,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.3.0</app.runtime>
+		<app.runtime>4.6.5</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
+    <plugins>
+        <plugin>
+         <groupId>org.mule.tools.maven</groupId>
+         <artifactId>mule-maven-plugin</artifactId>
+         <version>3.8.7</version>
+        </plugin>
+    </plugins>
 
     <build>
         <plugins>
@@ -37,7 +45,7 @@
     	<dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-http-connector</artifactId>
-            <version>1.5.10</version>
+            <version>1.9.2</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>
@@ -73,18 +81,18 @@
     </dependencies>
 
 	<repositories>
-          <repository>
-            <id>anypoint-exchange</id>
-            <name>Anypoint Exchange</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v1/maven</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <id>mulesoft-releases</id>
-            <name>MuleSoft Releases Repository</name>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <layout>default</layout>
-        </repository>
+            <repository>
+                <id>anypoint-exchange-v3</id>
+                <name>Anypoint Exchange</name>
+                <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+                <layout>default</layout>
+            </repository>
+            <repository>
+                <id>mulesoft-releases</id>
+                <name>MuleSoft Releases Repository</name>
+                <url>https://repository.mulesoft.org/releases/</url>
+                <layout>default</layout>
+            </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
