@@ -64,4 +64,5 @@ jobs:
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectBaseDir=mule4-batch-demo/ \
-          -Dsonar.java.jdkHome=$JAVA_HOME_8 
+          -Dsonar.java.jdkHome=$JAVA_HOME_8 \
+          -Dsonar.sources=src/main/**
