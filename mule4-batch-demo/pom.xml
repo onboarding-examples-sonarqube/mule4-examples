@@ -95,6 +95,13 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+            <id>mulesoft-public</id>
+            <name>mulesoft release repository</name>
+            <layout>default</layout>
+            <url> https://repository.mulesoft.org/nexus/content/repositories/public/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
