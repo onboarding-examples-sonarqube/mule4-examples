@@ -59,7 +59,7 @@ jobs:
           ORG_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           PROJECT_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
           export JAVA_HOME_8=${{ env.JAVA8_HOME }}
-          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -X\
           -f mule4-batch-demo/pom.xml \
           -Dsonar.projectKey=$ORG_NAME-gh_$PROJECT_NAME \
           -Dsonar.projectName=$ORG_NAME-gh_$PROJECT_NAME \
